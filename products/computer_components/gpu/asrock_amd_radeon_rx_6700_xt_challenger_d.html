@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../assets/homepage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Product</title>
+  </head>
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0; /* Ensure no default margin */
+    }
+
+    footer {
+      background-color: #007b9e; /* Match header color */
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      margin-top: auto; /* This is the key property */
+    }
+
+    .product-wrapper {
+      width: 80%;
+      margin: 28px auto; /* center under the header */
+      max-width: 1200px; /* optional limit */
+      box-sizing: border-box;
+    }
+
+    /* Card */
+    .card {
+      background-color: #dcdcdc;
+      color: #111;
+      padding: 40px;
+      display: flex; /* Lays out image and text-block side-by-side */
+      gap: 40px;
+      align-items: center;
+      border-radius: 2px;
+    }
+    .card img {
+      width: 280px;
+      height: 220px;
+      object-fit: contain;
+      background: #cfcfcf;
+      display: block;
+      border-radius: 2px;
+    }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .product-info h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: #111;
+    }
+
+    .product-info h2 {
+      margin: 0 0 18px;
+      font-size: 18px;
+      color: #111;
+    }
+
+    /* Buttons */
+    .button-group {
+      margin-top: 20px; /* Adds space above the buttons */
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .buy-btn,
+    .cart-btn {
+      background: #49a84a;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      height: 44px; /* Set a fixed height for both buttons */
+      box-sizing: border-box; /* Ensure padding is included in the height */
+    }
+
+    .buy-btn {
+      padding: 0 70px; /* Adjust padding for the text button */
+    }
+
+    .cart-btn {
+      padding: 0; /* Remove padding to rely on width/height */
+      width: 44px; /* Set width equal to height for a square shape */
+    }
+
+    .cart-btn ion-icon {
+      font-size: 22px; /* Adjust icon size if needed */
+    }
+
+    /* Tabs (same width as wrapper) */
+    .tabs-container {
+      width: 100%;
+      margin-top: 26px;
+      background: #d9d9d9;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .tab-buttons {
+      display: flex;
+      background: #bfbfbf;
+    }
+
+    .tab-button {
+      background: transparent;
+      border: none;
+      padding: 12px 18px;
+      cursor: pointer;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .tab-button.active {
+      background: #d9d9d9;
+    }
+
+    .tab-content {
+      padding: 18px;
+      background: #e6e6e6;
+      color: #111;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* small responsive tweak */
+    @media (max-width: 800px) {
+      .card {
+        flex-direction: column;
+        padding: 30px;
+      }
+      .card img {
+        width: 80%;
+        height: auto;
+      }
+      .product-wrapper {
+        width: 100%;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <div class="top-nav">
+        <div class="left-section">
+          <img
+            src="https://scontent.fmnl33-2.fna.fbcdn.net/v/t1.15752-9/575507886_4294411327509183_5815530201296324873_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHwXheHKm5yBolOaM0MajbvOiS1gabvwso6JLWBpu_CytoWQYUwsthj40JItK66s4M&_nc_ohc=4ISTIuz_d7EQ7kNvwG04oh8&_nc_oc=Adl1Ux2gi9EwLopdRIQ9-CZ5OlpIffB3fS21ca6PWg8Z7_6pUFKxdJ0G8pVVwB9cqeA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fmnl33-2.fna&oh=03_Q7cD3wGw0YU0yBYCopV-JwvsAOiCR754TnuETcL7RW_H0nz4bA&oe=692FBD7F"
+            alt="Logo"
+          />
+          <nav class="main-links">
+            <a href="../../../index.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+          </nav>
+        </div>
+        <div class="right-section">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <a href="../computer_components.html">PC Components</a>
+        <a href="#">Hardware</a>
+        <a href="#">Software</a>
+        <a href="#">Shop All</a>
+      </div>
+    </header>
+    <div class="product-wrapper">
+      <div class="card">
+        <img
+          src="https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Challenger%20D%2012GB(M1).png"
+          alt="Product Image"
+        />
+        <!-- All text and buttons go inside this single div -->
+        <div class="product-info">
+          <h1>ASRock AMD Radeon RX 6700 XT Challenger D 12GB</h1>
+          <h2>P000</h2>
+          <!-- Buttons are now the last item inside product-info -->
+          <div class="button-group">
+            <button class="buy-btn">Buy Now</button>
+            <button class="cart-btn">
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="description">
+            Description
+          </button>
+          <button class="tab-button" data-tab="specifications">
+            Specifications
+          </button>
+        </div>
+
+        <div class="tab-content">
+          <div id="description" class="tab-panel active">
+            <h3>Product Description</h3>
+            <br />
+            <p>
+              The ASRock AMD Radeon RX 6700 XT Challenger D 12GB is a powerful
+              graphics card designed for high-performance gaming and content
+              creation. It features 12GB of GDDR6 memory, delivering smooth and
+              immersive experiences in the latest games and applications. With
+              advanced cooling solutions and robust build quality, this GPU
+              ensures optimal performance even during intense workloads.
+            </p>
+          </div>
+
+          <div id="specifications" class="tab-panel">
+            <h3>Product Specifications</h3>
+            <br />
+            <p>
+              Memory: 12GB GDDR6<br />
+              Memory Interface: 192-bit<br />
+              Core Clock: Up to 2581 MHz (Boost)<br />
+              Outputs: HDMI 2.1, DisplayPort 1.4a<br />
+              Cooling: Dual Fan<br />
+              Power Connectors: 8-pin + 6-pin<br />
+              Recommended PSU: 650W or higher<br />
+              DirectX Support: DirectX 12 Ultimate<br />
+              PCIe Interface: PCIe 4.0 x16
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
+  </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Deactivate all buttons and panels
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+        // Activate the clicked button and corresponding panel
+        button.classList.add("active");
+        const targetPanel = document.getElementById(button.dataset.tab);
+        if (targetPanel) {
+          targetPanel.classList.add("active");
+        }
+      });
+    });
+  </script>
+</html>

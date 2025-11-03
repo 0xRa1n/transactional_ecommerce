@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Header (fixed) */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* header total height (top-nav + bottom-nav) */
+  background: #007b9e;
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* top-nav row inside header */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  height: 60px;
+}
+/* ...existing code... (after .top-nav) ... */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.main-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.main-links a:hover {
+  text-decoration: underline;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 4px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.search-container i {
+  color: #007b9e;
+  margin-right: 6px;
+}
+
+.cart-icon {
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* bottom nav */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 10px;
+  gap: 12px;
+}
+
+.bottom-nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+}
+
+.bottom-nav a:hover {
+  text-decoration: underline;
+}
+/* ...existing code... */
+
+/* logo size */
+header img {
+  height: 60px;
+}
+
+/* center primary nav links */
+.main-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+/* search / cart on right */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* bottom nav row */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 6px 0;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.03); /* subtle separation if desired */
+}
+
+/* ensure page content sits below fixed header */
+body {
+  background-color: #faf9f6;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 45px;
+
+  margin: 0;
+  padding-top: 110px; /* >= header height so content sits below header */
+}
+/* ...existing code... */
+.card {
+  background-color: #d9d9d9;
+  color: black;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  padding: 70px 40px;
+}
+img {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+}
+.product-info {
+  margin-left: 30px; /* to add spacing between the image and the text */
+  padding: 0 20px;
+  word-wrap: normal;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.cart-btn {
+  padding: 10px;
+}
+
+.cart-btn ion-icon {
+  font-size: 25px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Tabs Styling */
+.tabs-container {
+  width: 80%;
+  background-color: #d9d9d9;
+  color: black;
+  overflow: hidden;
+}
+.tab-buttons {
+  display: flex;
+  background-color: #c1c1c1;
+}
+
+.tab-button {
+  background-color: transparent;
+  color: black;
+  border: none;
+  border-radius: 0;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.tab-button.active {
+  background-color: #d9d9d9;
+  font-weight: bold;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
