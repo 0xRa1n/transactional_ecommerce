@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="assets/cart.css" />
     <title>Your cart - TechTonic</title>
   </head>
+  <style>
+    #cart-summary {
+      display: flex;
+      justify-content: flex-start; /* Aligns the summary card to the left */
+      padding: 20px 80px; /* Adds padding, adjust as needed */
+    }
+
+    .summary-card {
+      background-color: #f0f0f0;
+      color: #111;
+      padding: 20px;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      width: 250px;
+    }
+
+    .summary-card h3 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    #checkout-btn {
+      background-color: #008c99;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      align-self: stretch; /* Makes the button take the full width of the card */
+    }
+  </style>
   <body>
     <header>
       <div class="top-nav">
@@ -42,68 +78,11 @@
       <div id="cart-items"></div>
     </div>
 
-    <div id="cart-summary" class="grid"></div>
+    <div id="cart-summary"></div>
 
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
   </body>
-  <script>
-    // read cart items from localStorage
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartSummaryContainer = document.getElementById("cart-summary");
-    let totalPrice = 0;
-
-    if (cartItems.length === 0) {
-      // create a div with class card to show "Your cart is empty"
-      const emptyDiv = document.createElement("div");
-      emptyDiv.className = "card";
-      emptyDiv.innerHTML = `<h4>Your cart is empty</h4>`;
-      cartItemsContainer.appendChild(emptyDiv);
-    }
-
-    cartItems.forEach((item) => {
-      const itemDiv = document.createElement("div");
-      itemDiv.className = "card";
-      itemDiv.innerHTML = `
-        <div class="product-details">
-          <img src="${
-            item.image
-          }" style="width: 100px; height: 100px;" alt="Product Image" />
-          <div class="product-info">
-            <h3>${item.name}</h3>
-            <h4>₱${item.price.toLocaleString()}</h4>
-          </div>
-        </div>
-        <div class="cart-actions">
-            <input type="number" class="quantity-input" value="1" min="1">
-            <button class="remove-btn"><ion-icon name="trash-outline"></ion-icon></button>
-        </div>
-      `;
-      cartItemsContainer.appendChild(itemDiv);
-    });
-
-    // remove item to cart
-    cartItemsContainer.addEventListener("click", (e) => {
-      if (
-        e.target.classList.contains("remove-btn") ||
-        e.target.parentElement.classList.contains("remove-btn")
-      ) {
-        const itemDiv = e.target.closest(".card");
-        const itemName = itemDiv.querySelector(".product-info h3").innerText;
-
-        // Remove from cartItems array
-        const index = cartItems.findIndex((item) => item.name === itemName);
-        if (index > -1) {
-          cartItems.splice(index, 1);
-          localStorage.setItem("cart", JSON.stringify(cartItems));
-        }
-
-        // Remove from DOM
-        itemDiv.remove();
-        location.reload(); // Refresh to update total price
-      }
-    });
-  </script>
+  <script src="assets/js/cart.js"></script>
   <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
