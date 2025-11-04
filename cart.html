@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/homepage.css" />
+    <link rel="stylesheet" href="assets/cart.css" />
+    <title>Your cart - TechTonic</title>
+  </head>
+  <body>
+    <header>
+      <div class="top-nav">
+        <div class="left-section">
+          <img
+            src="https://scontent.fmnl33-2.fna.fbcdn.net/v/t1.15752-9/575507886_4294411327509183_5815530201296324873_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHwXheHKm5yBolOaM0MajbvOiS1gabvwso6JLWBpu_CytoWQYUwsthj40JItK66s4M&_nc_ohc=4ISTIuz_d7EQ7kNvwG04oh8&_nc_oc=Adl1Ux2gi9EwLopdRIQ9-CZ5OlpIffB3fS21ca6PWg8Z7_6pUFKxdJ0G8pVVwB9cqeA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fmnl33-2.fna&oh=03_Q7cD3wGw0YU0yBYCopV-JwvsAOiCR754TnuETcL7RW_H0nz4bA&oe=692FBD7F"
+            alt="Logo"
+          />
+          <nav class="main-links">
+            <a href="./index.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+          </nav>
+        </div>
+        <div class="right-section">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <a href="products/computer_components/computer_components.html"
+          >PC Components</a
+        >
+        <a href="#">Hardware</a>
+        <a href="#">Software</a>
+        <a href="#">Shop All</a>
+      </div>
+    </header>
+    <div class="product-wrapper">
+      <div id="cart-items"></div>
+    </div>
+
+    <div id="cart-summary" class="grid"></div>
+
+    <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
+  </body>
+  <script>
+    // read cart items from localStorage
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartSummaryContainer = document.getElementById("cart-summary");
+    let totalPrice = 0;
+
+    if (cartItems.length === 0) {
+      // create a div with class card to show "Your cart is empty"
+      const emptyDiv = document.createElement("div");
+      emptyDiv.className = "card";
+      emptyDiv.innerHTML = `<h4>Your cart is empty</h4>`;
+      cartItemsContainer.appendChild(emptyDiv);
+    }
+
+    cartItems.forEach((item) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "card";
+      itemDiv.innerHTML = `
+        <div class="product-details">
+          <img src="${item.image}" style="width: 100px; height: 100px;" alt="Product Image" />
+          <div class="product-info">
+            <h3>${item.name}</h3>
+            <h4>${item.price}</h4>
+          </div>
+        </div>
+        <div class="cart-actions">
+            <input type="number" class="quantity-input" value="1" min="1">
+            <button class="remove-btn"><ion-icon name="trash-outline"></ion-icon></button>
+        </div>
+      `;
+      cartItemsContainer.appendChild(itemDiv);
+      totalPrice += parseFloat(item.price.replace(/,/g, ""));
+    });
+
+    // remove item to cart
+    cartItemsContainer.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("remove-btn") ||
+        e.target.parentElement.classList.contains("remove-btn")
+      ) {
+        const itemDiv = e.target.closest(".card");
+        const itemName = itemDiv.querySelector(".product-info h3").innerText;
+
+        // Remove from cartItems array
+        const index = cartItems.findIndex((item) => item.name === itemName);
+        if (index > -1) {
+          cartItems.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cartItems));
+        }
+
+        // Remove from DOM
+        itemDiv.remove();
+        location.reload(); // Refresh to update total price
+      }
+    });
+  </script>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+</html>

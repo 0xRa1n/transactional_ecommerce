@@ -8,164 +8,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="../../../assets/product.css" />
     <title>Product</title>
   </head>
-  <style>
-    html {
-      height: 100%;
-    }
-
-    body {
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      margin: 0; /* Ensure no default margin */
-    }
-
-    footer {
-      background-color: #007b9e; /* Match header color */
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      width: 100%;
-      margin-top: auto; /* This is the key property */
-    }
-
-    .product-wrapper {
-      width: 80%;
-      margin: 28px auto; /* center under the header */
-      max-width: 1200px; /* optional limit */
-      box-sizing: border-box;
-    }
-
-    /* Card */
-    .card {
-      background-color: #dcdcdc;
-      color: #111;
-      padding: 40px;
-      display: flex; /* Lays out image and text-block side-by-side */
-      gap: 40px;
-      align-items: center;
-      border-radius: 2px;
-    }
-    .card img {
-      width: 280px;
-      height: 220px;
-      object-fit: contain;
-      background: #cfcfcf;
-      display: block;
-      border-radius: 2px;
-    }
-
-    .product-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .product-info h1 {
-      margin: 0 0 8px;
-      font-size: 28px;
-      color: #111;
-    }
-
-    .product-info h2 {
-      margin: 0 0 18px;
-      font-size: 18px;
-      color: #111;
-    }
-
-    /* Buttons */
-    .button-group {
-      margin-top: 20px; /* Adds space above the buttons */
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .buy-btn,
-    .cart-btn {
-      background: #49a84a;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      height: 44px; /* Set a fixed height for both buttons */
-      box-sizing: border-box; /* Ensure padding is included in the height */
-    }
-
-    .buy-btn {
-      padding: 0 70px; /* Adjust padding for the text button */
-    }
-
-    .cart-btn {
-      padding: 0; /* Remove padding to rely on width/height */
-      width: 44px; /* Set width equal to height for a square shape */
-    }
-
-    .cart-btn ion-icon {
-      font-size: 22px; /* Adjust icon size if needed */
-    }
-
-    /* Tabs (same width as wrapper) */
-    .tabs-container {
-      width: 100%;
-      margin-top: 26px;
-      background: #d9d9d9;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .tab-buttons {
-      display: flex;
-      background: #bfbfbf;
-    }
-
-    .tab-button {
-      background: transparent;
-      border: none;
-      padding: 12px 18px;
-      cursor: pointer;
-      color: #111;
-      font-weight: 600;
-    }
-
-    .tab-button.active {
-      background: #d9d9d9;
-    }
-
-    .tab-content {
-      padding: 18px;
-      background: #e6e6e6;
-      color: #111;
-    }
-
-    .tab-panel {
-      display: none;
-    }
-    .tab-panel.active {
-      display: block;
-    }
-
-    /* small responsive tweak */
-    @media (max-width: 800px) {
-      .card {
-        flex-direction: column;
-        padding: 30px;
-      }
-      .card img {
-        width: 80%;
-        height: auto;
-      }
-      .product-wrapper {
-        width: 100%;
-      }
-    }
-  </style>
   <body>
     <header>
       <div class="top-nav">
@@ -185,7 +30,9 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+          <a href="../../../cart.html">
+            <i class="fa-solid fa-cart-shopping cart-icon"></i
+          ></a>
         </div>
       </div>
       <div class="bottom-nav">
@@ -204,7 +51,7 @@
         <!-- All text and buttons go inside this single div -->
         <div class="product-info">
           <h1>ASRock AMD Radeon RX 6700 XT Challenger D 12GB</h1>
-          <h2>P000</h2>
+          <h2>₱24,995</h2>
           <!-- Buttons are now the last item inside product-info -->
           <div class="button-group">
             <button class="buy-btn">Buy Now</button>
@@ -267,23 +114,5 @@
     nomodule
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
-  <script>
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabPanels = document.querySelectorAll(".tab-panel");
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        // Deactivate all buttons and panels
-        tabButtons.forEach((btn) => btn.classList.remove("active"));
-        tabPanels.forEach((panel) => panel.classList.remove("active"));
-
-        // Activate the clicked button and corresponding panel
-        button.classList.add("active");
-        const targetPanel = document.getElementById(button.dataset.tab);
-        if (targetPanel) {
-          targetPanel.classList.add("active");
-        }
-      });
-    });
-  </script>
+  <script src="../../../assets/js/product.js"></script>
 </html>
