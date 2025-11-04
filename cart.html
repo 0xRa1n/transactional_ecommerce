@@ -66,10 +66,12 @@
       itemDiv.className = "card";
       itemDiv.innerHTML = `
         <div class="product-details">
-          <img src="${item.image}" style="width: 100px; height: 100px;" alt="Product Image" />
+          <img src="${
+            item.image
+          }" style="width: 100px; height: 100px;" alt="Product Image" />
           <div class="product-info">
             <h3>${item.name}</h3>
-            <h4>${item.price}</h4>
+            <h4>₱${item.price.toLocaleString()}</h4>
           </div>
         </div>
         <div class="cart-actions">
@@ -78,7 +80,6 @@
         </div>
       `;
       cartItemsContainer.appendChild(itemDiv);
-      totalPrice += parseFloat(item.price.replace(/,/g, ""));
     });
 
     // remove item to cart

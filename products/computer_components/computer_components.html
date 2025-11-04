@@ -30,7 +30,9 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+          <a href="../../../cart.html">
+            <i class="fa-solid fa-cart-shopping cart-icon"></i
+          ></a>
         </div>
       </div>
       <div class="bottom-nav">
@@ -178,10 +180,21 @@
               <div class="price">₱${product.price.toLocaleString()}</div>
               <div class="button-group">
                 <button>Buy Now</button>
-                <button><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
               </div>`;
 
       pcComponentsContainer.appendChild(productCard);
+    });
+
+    //  add to cart functionality
+    document.querySelectorAll(".cart-btn").forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const product = pcComponents[index];
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart.`);
+      });
     });
   </script>
 </html>
