@@ -22,8 +22,8 @@
           />
           <nav class="main-links">
             <a href="../../../index.html">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="../../../about_us.html">About Us</a>
+            <a href="../../../contact_us.html">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
@@ -40,7 +40,7 @@
         <a href="../computer_components.html">PC Components</a>
         <a href="#">Hardware</a>
         <a href="#">Software</a>
-        <a href="#">Shop All</a>
+        <a href="../computer_components.html">Shop All</a>
       </div>
     </header>
     <div class="product-wrapper">
@@ -55,7 +55,12 @@
           <h2>₱41,115</h2>
           <!-- Buttons are now the last item inside product-info -->
           <div class="button-group">
-            <button class="buy-btn">Buy Now</button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('AMD Ryzen 9 7950X', 41115, 'https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg')"
+            >
+              Buy Now
+            </button>
             <button class="cart-btn">
               <ion-icon name="cart-outline"></ion-icon>
             </button>

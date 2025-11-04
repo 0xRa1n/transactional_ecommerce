@@ -21,8 +21,8 @@
           />
           <nav class="main-links">
             <a href="../../../index.html">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="../../../about_us.html">About Us</a>
+            <a href="../../../contact_us.html">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
@@ -30,7 +30,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search" />
           </div>
-                    <a href="../../../cart.html">
+          <a href="../../../cart.html">
             <i class="fa-solid fa-cart-shopping cart-icon"></i
           ></a>
         </div>
@@ -39,7 +39,7 @@
         <a href="../computer_components.html">PC Components</a>
         <a href="#">Hardware</a>
         <a href="#">Software</a>
-        <a href="#">Shop All</a>
+        <a href="../computer_components.html">Shop All</a>
       </div>
     </header>
     <div class="product-wrapper">
@@ -54,7 +54,12 @@
           <h2>₱18995</h2>
           <!-- Buttons are now the last item inside product-info -->
           <div class="button-group">
-            <button class="buy-btn">Buy Now</button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('EVGA SuperNOVA 1600 G+', 18995, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WRaQg6wwiMDvJn80-amdjpDbovTfc318hg&s')"
+            >
+              Buy Now
+            </button>
             <button class="cart-btn">
               <ion-icon name="cart-outline"></ion-icon>
             </button>

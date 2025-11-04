@@ -3,50 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/homepage.css" />
-    <link rel="stylesheet" href="assets/cart.css" />
+    <link rel="stylesheet" href="../../../assets/homepage.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <title>Your cart - TechTonic</title>
+    <link rel="stylesheet" href="../../../assets/product.css" />
+    <title>Product</title>
   </head>
-  <style>
-    #cart-summary {
-      display: flex;
-      justify-content: flex-start; /* Aligns the summary card to the left */
-      padding: 20px 80px; /* Adds padding, adjust as needed */
-    }
-
-    .summary-card {
-      background-color: #f0f0f0;
-      color: #111;
-      padding: 20px;
-      border-radius: 2px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-      width: 250px;
-    }
-
-    .summary-card h3 {
-      margin: 0;
-      font-size: 1.2em;
-      font-weight: bold;
-    }
-
-    #checkout-btn {
-      background-color: #008c99;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1em;
-      align-self: stretch; /* Makes the button take the full width of the card */
-    }
-  </style>
   <body>
     <header>
       <div class="top-nav">
@@ -56,9 +20,9 @@
             alt="Logo"
           />
           <nav class="main-links">
-            <a href="./index.html">Home</a>
-            <a href="./about_us.html">About Us</a>
-            <a href="./contact_us.html">Contact Us</a>
+            <a href="../../../index.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
@@ -66,11 +30,13 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search" />
           </div>
-          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+          <a href="../../../cart.html">
+            <i class="fa-solid fa-cart-shopping cart-icon"></i
+          ></a>
         </div>
       </div>
       <div class="bottom-nav">
-        <a href="products/computer_components/computer_components.html"
+        <a href="../products/computer_components/computer_components.html"
           >PC Components</a
         >
         <a href="#">Hardware</a>
@@ -81,14 +47,18 @@
       </div>
     </header>
     <div class="product-wrapper">
-      <div id="cart-items"></div>
+      <div class="card">
+        <!-- All text and buttons go inside this single div -->
+        <div class="product-info">
+          <p style="font-size: 20px">
+            You can contact us at:<br /><br />Facebook: TechTonic Philippines<br />Email:
+            techtonicph@gmail.com<br />Phone: 09765293876
+          </p>
+        </div>
+      </div>
     </div>
-
-    <div id="cart-summary"></div>
-
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
   </body>
-  <script src="assets/js/cart.js"></script>
   <script
     type="module"
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -97,4 +67,5 @@
     nomodule
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
+  <script src="../../../assets/js/product.js"></script>
 </html>

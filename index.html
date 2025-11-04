@@ -20,8 +20,8 @@
           />
           <nav class="main-links">
             <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="about_us.html">About Us</a>
+            <a href="contact_us.html">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
@@ -40,7 +40,9 @@
         >
         <a href="#">Hardware</a>
         <a href="#">Software</a>
-        <a href="#">Shop All</a>
+        <a href="../products/computer_components/computer_components.html"
+          >Shop All</a
+        >
       </div>
     </header>
     <div class="carousel">
@@ -72,7 +74,7 @@
       <div class="grid">
         <div class="card">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTvqym8FK_CZpOu9O91b6ZItDSokAqN8B_TQ&s"
+            src="https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg"
             alt="product placeholder"
           />
           <div>
@@ -84,8 +86,16 @@
           </div>
           <div class="price">₱41,115</div>
           <div class="button-group">
-            <button>Buy Now</button>
-            <button><i class="fa-solid fa-cart-shopping"></i></button>
+            <button
+              onclick="buyNow('AMD Ryzen 9 7950X', 41115, 'https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg')"
+            >
+              Buy Now
+            </button>
+            <button
+              onclick="addToCart('AMD Ryzen 9 7950X', 41115, 'https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg')"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
           </div>
         </div>
 
@@ -103,8 +113,17 @@
           </div>
           <div class="price">₱53,999</div>
           <div class="button-group">
-            <button>Buy Now</button>
-            <button><i class="fa-solid fa-cart-shopping"></i></button>
+            <button
+              onclick="buyNow('MSI GeForce RTX 4070 Ti Gaming X Slim BLACK', 53999, 'https://bermorzone.com.ph/wp-content/uploads/2023/01/geforce-rtx-4070-ti-gaming-x-slim-12g-ph-65952c9914291.webp')"
+            >
+              Buy Now
+            </button>
+            <button
+              class="cart-btn"
+              onclick="addToCart('MSI GeForce RTX 4070 Ti Gaming X Slim BLACK', 53999, 'https://bermorzone.com.ph/wp-content/uploads/2023/01/geforce-rtx-4070-ti-gaming-x-slim-12g-ph-65952c9914291.webp')"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
           </div>
         </div>
 
@@ -122,8 +141,16 @@
           </div>
           <div class="price">₱24,995</div>
           <div class="button-group">
-            <button>Buy Now</button>
-            <button><i class="fa-solid fa-cart-shopping"></i></button>
+            <button
+              onclick="buyNow('ASRock AMD Radeon RX 6700 XT Challenger D', 24995, 'https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Challenger%20D%2012GB(M1).png')"
+            >
+              Buy Now
+            </button>
+            <button
+              onclick="addToCart('ASRock AMD Radeon RX 6700 XT Challenger D', 24995, 'https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Challenger%20D%2012GB(M1).png')"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
           </div>
         </div>
 
@@ -141,13 +168,52 @@
           </div>
           <div class="price">₱12,222</div>
           <div class="button-group">
-            <button>Buy Now</button>
-            <button><i class="fa-solid fa-cart-shopping"></i></button>
+            <button
+              onclick="buyNow('Corsair RM850x', 12222, 'https://ecommerce.datablitz.com.ph/cdn/shop/files/0840006667506.jpg?v=1725160941')"
+            >
+              Buy Now
+            </button>
+            <button
+              onclick="addToCart('Corsair RM850x', 12222, 'https://ecommerce.datablitz.com.ph/cdn/shop/files/0840006667506.jpg?v=1725160941')"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
           </div>
         </div>
       </div>
     </main>
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
     <script src="assets/js/homepage.js"></script>
+    <script>
+      function addToCart(productName, productPrice, productImage) {
+        // Get the existing cart from localStorage or create a new empty array
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Create a new product object
+        const product = {
+          name: productName,
+          price: productPrice,
+          image: productImage,
+        };
+
+        // Add the new product to the cart
+        cart.push(product);
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Notify the user
+        alert(`"${productName}" has been added to your cart.`);
+      }
+    </script>
+    <script src="assets/js/product.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

@@ -38,7 +38,7 @@ if (cartItems.length > 0) {
   cartSummaryContainer.innerHTML = `<div class="card">
   <div class="product-details">
       <h3>Total Price: ₱${totalPrice.toLocaleString()}</h3>
-      <button id="checkout-btn">Proceed to Checkout</button>
+      <button id="checkout-btn"><a href="checkout.html" style="text-decoration: none; color: white">Proceed to checkout</a></button>
     </div></div>
   `;
 }

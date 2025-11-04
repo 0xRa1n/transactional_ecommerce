@@ -21,8 +21,8 @@
           />
           <nav class="main-links">
             <a href="../../../index.html">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="../../../about_us.html">About Us</a>
+            <a href="../../../contact_us.html">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
@@ -39,7 +39,7 @@
         <a href="../computer_components.html">PC Components</a>
         <a href="#">Hardware</a>
         <a href="#">Software</a>
-        <a href="#">Shop All</a>
+        <a href="../computer_components.html">Shop All</a>
       </div>
     </header>
     <div class="product-wrapper">
@@ -54,7 +54,12 @@
           <h2>₱16,295</h2>
           <!-- Buttons are now the last item inside product-info -->
           <div class="button-group">
-            <button class="buy-btn">Buy Now</button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('Intel Core i5-12600K', 16295, 'https://joebz.com/cdn/shop/products/i5_1024x1024.png?v=1648715332')"
+            >
+              Buy Now
+            </button>
             <button class="cart-btn">
               <ion-icon name="cart-outline"></ion-icon>
             </button>
@@ -114,5 +119,5 @@
     nomodule
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
-  <script src="../../../assets/js/product.js"></script>
+  <script src="../../../assets/js/buynow_productpg.js"></script>
 </html>

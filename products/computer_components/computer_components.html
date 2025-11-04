@@ -21,7 +21,7 @@
           />
           <nav class="main-links">
             <a href="../../index.html">Home</a>
-            <a href="#">About Us</a>
+            <a href="../../about_us.html">About Us</a>
             <a href="#">Contact Us</a>
           </nav>
         </div>
@@ -48,9 +48,30 @@
       <div id="pcComponents" class="grid"></div>
     </main>
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
-    <script src="assets/homepage.js"></script>
   </body>
+  <script src="assets/homepage.js"></script>
+
   <script>
+    function buyNow(productName, productPrice, productImage) {
+      // Get the existing cart from localStorage or create a new empty array
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Create a new product object
+      const product = {
+        name: productName,
+        price: productPrice,
+        image: productImage,
+      };
+
+      // Add the new product to the cart
+      cart.push(product);
+
+      // Save the updated cart back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Redirect to the checkout page
+      window.location.href = "../../checkout.html";
+    }
     const pcComponents = [
       {
         name: "Intel Core i9-10980XE Extreme Edition",
@@ -117,7 +138,7 @@
       },
       {
         name: "ASRock > AMD Radeon™ RX 6700 XT Challenger D",
-        price: 0,
+        price: 24995,
         image:
           "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Challenger%20D%2012GB(M1).png",
         link: "gpu/asrock_amd_radeon_rx_6700_xt_challenger_d.html",
@@ -179,7 +200,9 @@
               </div>
               <div class="price">₱${product.price.toLocaleString()}</div>
               <div class="button-group">
-                <button>Buy Now</button>
+                <button onclick="buyNow('${product.name}', ${product.price}, '${
+        product.image
+      }')">Buy Now</button>
                 <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
               </div>`;
 
