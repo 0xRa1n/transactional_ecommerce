@@ -64,3 +64,32 @@ cartItemsContainer.addEventListener("click", (e) => {
     location.reload(); // Refresh to update total price
   }
 });
+// update quantity
+cartItemsContainer.addEventListener("change", (e) => {
+  if (e.target.classList.contains("quantity-input")) {
+    const itemDiv = e.target.closest(".card");
+    const itemName = itemDiv.querySelector(".product-info h3").innerText;
+    const quantity = parseInt(e.target.value);
+    const item = cartItems.find((item) => item.name === itemName);
+    if (item) {
+      const itemPrice = item.price * quantity;
+      const priceElement = itemDiv.querySelector(".product-info h4");
+      priceElement.innerText = `₱${itemPrice.toLocaleString()}`;
+      // Update total price
+      totalPrice = cartItems.reduce((total, currentItem) => {
+        const qtyInput = cartItemsContainer.querySelector(
+          `.card:has(.product-info h3:contains("${currentItem.name}")) .quantity-input`
+        );
+        const qty = qtyInput ? parseInt(qtyInput.value) : 1;
+        return total + currentItem.price * qty;
+      }, 0);
+      cartSummaryContainer.innerHTML = `<div class="card">
+      <div class="product-details">
+
+          <h3>Total Price: ₱${totalPrice.toLocaleString()}</h3>
+          <button id="checkout-btn"><a href="checkout.html" style="text-decoration: none; color: white">Proceed to checkout</a></button>
+        </div></div>
+      `;
+    }
+  }
+});
