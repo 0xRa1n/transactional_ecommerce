@@ -19,15 +19,13 @@ tabButtons.forEach((button) => {
 const cartButtons = document.querySelectorAll(".cart-btn");
 cartButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // save to localStorage
-    // get the price (excluding the peso sign)
-    const price = document
-      .querySelector(".product-info h2")
-      .innerText.replace("₱", "");
+    // get the price (strip peso sign and commas, then convert to number)
+    const rawPrice = document.querySelector(".product-info h2").innerText;
+    const price = Number(rawPrice.replace(/[^0-9.-]+/g, ""));
 
     const product = {
       name: document.querySelector(".product-info h1").innerText,
-      price: price,
+      price: price, // store as a number (26995)
       image: document.querySelector(".card img").src,
     };
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
