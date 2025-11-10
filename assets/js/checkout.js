@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     itemDiv.className = "summary-item";
     itemDiv.innerHTML = `
       <span>${item.name}</span>
-      <span>₱${item.price.toLocaleString()}</span>
+      <span>₱${(item.price * item.quantity).toLocaleString()}</span>
     `;
     summaryItemsContainer.appendChild(itemDiv);
-    totalPrice += parseFloat(item.price);
+    totalPrice += parseFloat(item.price) * item.quantity;
   });
 
   summaryTotalPriceEl.innerText = `₱${totalPrice.toLocaleString()}`;

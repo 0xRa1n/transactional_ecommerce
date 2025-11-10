@@ -1,0 +1,116 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.pricing-card {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 30px;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.pricing-card.popular {
+  border-top: 3px solid #007bff;
+}
+
+.popular-banner {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pricing-card h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+.price-section {
+  margin-bottom: 20px;
+}
+
+.price-section .price {
+  font-size: 48px;
+  font-weight: bold;
+  color: #212529;
+  display: block;
+}
+
+.price-section .price-desc {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.price-section.enterprise {
+  font-size: 16px;
+  color: #495057;
+  height: 80px; /* To align with other cards */
+}
+
+.buy-now-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+}
+
+.add-to-cart {
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.features-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.features-list .fa-check {
+  color: #28a745;
+  margin-right: 10px;
+  margin-top: 3px;
+}

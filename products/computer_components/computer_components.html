@@ -3,15 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sam Shop</title>
+    <title>PC Components - TechTonic</title>
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../assets/homepage.css" />
+    <link rel="stylesheet" href="../../assets/css/homepage.css" />
   </head>
-
   <body>
     <header>
       <div class="top-nav">
@@ -22,24 +21,32 @@
           <nav class="main-links">
             <a href="../../index.html">Home</a>
             <a href="../../about_us.html">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="../../contact_us.html">Contact Us</a>
           </nav>
         </div>
         <div class="right-section">
           <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search" />
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search"
+              autocomplete="off"
+            />
+            <div id="search-results"></div>
           </div>
-          <a href="../../../cart.html">
+          <a href="../../cart.html">
             <i class="fa-solid fa-cart-shopping cart-icon"></i
           ></a>
         </div>
       </div>
       <div class="bottom-nav">
-        <a href="#">PC Components</a>
-        <a href="#">Hardware</a>
-        <a href="#">Software</a>
-        <a href="#">Shop All</a>
+        <a href="../computer_components/computer_components.html"
+          >PC Components</a
+        >
+        <a href="../hardware/hardware.html">Hardware</a>
+        <a href="../software/software.html">Software</a>
+        <a href="../shop_all.html">Shop All</a>
       </div>
     </header>
     <main>
@@ -49,175 +56,7 @@
     </main>
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
   </body>
-  <script src="assets/homepage.js"></script>
-
-  <script>
-    function buyNow(productName, productPrice, productImage) {
-      // Get the existing cart from localStorage or create a new empty array
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      // Create a new product object
-      const product = {
-        name: productName,
-        price: productPrice,
-        image: productImage,
-      };
-
-      // Add the new product to the cart
-      cart.push(product);
-
-      // Save the updated cart back to localStorage
-      localStorage.setItem("cart", JSON.stringify(cart));
-
-      // Redirect to the checkout page
-      window.location.href = "../../checkout.html";
-    }
-    const pcComponents = [
-      {
-        name: "Intel Core i9-10980XE Extreme Edition",
-        price: 26995,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTvqym8FK_CZpOu9O91b6ZItDSokAqN8B_TQ&s",
-        link: "cpu/i9_extreme.html",
-      },
-      {
-        name: "AMD Ryzen 9 7950X",
-        price: 41115,
-        image:
-          "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg",
-        link: "cpu/ryzen9_7950x.html",
-      },
-      {
-        name: "Intel Core i7 13700",
-        price: 25999,
-        image:
-          "https://bermorzone.com.ph/wp-content/uploads/2023/01/intel-core-i7-13700-philippines-btz-ph-600x600.jpg",
-        link: "cpu/i7_13700.html",
-      },
-      {
-        name: "AMD Ryzen 7 5800X",
-        price: 11595,
-        image:
-          "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-7-5800x.jpg",
-        link: "cpu/ryzen7_5800x.html",
-      },
-      {
-        name: "Intel Core i5 12600K",
-        price: 16295,
-        image:
-          "https://joebz.com/cdn/shop/products/i5_1024x1024.png?v=1648715332",
-        link: "cpu/i5_12600k.html",
-      },
-
-      {
-        name: "MSI GeForce RTX 4090 GAMING X SLIM 24G",
-        price: 109995,
-        image:
-          "https://bermorzone.com.ph/wp-content/uploads/2023/11/MSI-GeForce-RTX-4090-GAMING-X-SLIM-24G.webp",
-        link: "gpu/msi_geforce_rtx_4090.html",
-      },
-      {
-        name: "MSI GeForce RTX 4070 Ti Gaming X Slim BLACK",
-        price: 53999,
-        image:
-          "https://bermorzone.com.ph/wp-content/uploads/2023/01/geforce-rtx-4070-ti-gaming-x-slim-12g-ph-65952c9914291.webp",
-        link: "gpu/geforce_rtx_4070_ti.html",
-      },
-      {
-        name: "Asrock Radeon RX 7900 XT",
-        price: 61795,
-        image: "https://www.dateks.lv/images/pic/2400/2400/771/1351.jpg",
-        link: "gpu/asrock_radeon_rx_7900_xt.html",
-      },
-      {
-        name: "MSI Gaming GeForce RTX 3060",
-        price: 17500,
-        image:
-          "https://m.media-amazon.com/images/I/71tduSp8ooL._AC_SL1500_.jpg",
-        link: "gpu/msi_gaming_geforce_rtx_3060.html",
-      },
-      {
-        name: "ASRock > AMD Radeon™ RX 6700 XT Challenger D",
-        price: 24995,
-        image:
-          "https://www.asrock.com/Graphics-Card/photo/Radeon%20RX%206700%20XT%20Challenger%20D%2012GB(M1).png",
-        link: "gpu/asrock_amd_radeon_rx_6700_xt_challenger_d.html",
-      },
-      {
-        name: "Corsair RM850x",
-        price: 12222,
-        image:
-          "https://ecommerce.datablitz.com.ph/cdn/shop/files/0840006667506.jpg?v=1725160941",
-        link: "psu/corsair_rm850x.html",
-      },
-      {
-        name: "be quiet! Pure Power 13 M 850W",
-        price: 8995,
-        image:
-          "https://hwbusters.com/wp-content/uploads/2025/06/be-quiet-Pure-Power-13-M-850W.jpg",
-        link: "psu/be_quiet_pure_power_13_m_850w.html",
-      },
-      {
-        name: "MSI MAG A550BN Bronze 550W",
-        price: 2450,
-        image:
-          "https://dynaquestpc.com/cdn/shop/products/MSIMAGA650BN_afc8db2c-a333-4f46-8c9f-566613081183.png?v=1630704094&width=640",
-        link: "psu/msi_mag_a550bn_bronze_550w.html",
-      },
-      {
-        name: "EVGA SuperNOVA 1600 G+",
-        price: 18995,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WRaQg6wwiMDvJn80-amdjpDbovTfc318hg&s",
-        link: "psu/evga_supernova_1600_g_plus.html",
-      },
-      {
-        name: "Thermaltake Toughpower GF A3 1050W",
-        price: 9295,
-        image:
-          "https://ecommerce.datablitz.com.ph/cdn/shop/files/csacsa-csagsa-gsa_800x.jpg?v=1711943361",
-        link: "psu/thermaltake_toughpower_gf_a3_1050w.html",
-      },
-      // Add more products as needed
-    ];
-
-    const pcComponentsContainer = document.getElementById("pcComponents");
-
-    pcComponents.forEach((product) => {
-      const productCard = document.createElement("div");
-      productCard.className = "card";
-
-      productCard.innerHTML = `<img
-                src="${product.image}"
-                alt="${product.name}"
-              />
-              <div>
-                <a
-                  href="${product.link}"
-                  style="text-decoration: none; color: black"
-                  >${product.name}</a
-                >
-              </div>
-              <div class="price">₱${product.price.toLocaleString()}</div>
-              <div class="button-group">
-                <button onclick="buyNow('${product.name}', ${product.price}, '${
-        product.image
-      }')">Buy Now</button>
-                <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
-              </div>`;
-
-      pcComponentsContainer.appendChild(productCard);
-    });
-
-    //  add to cart functionality
-    document.querySelectorAll(".cart-btn").forEach((button, index) => {
-      button.addEventListener("click", () => {
-        const product = pcComponents[index];
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push(product);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        alert(`${product.name} has been added to your cart.`);
-      });
-    });
-  </script>
+  <script src="../../assets/js/product.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/computer_components.js"></script>
 </html>

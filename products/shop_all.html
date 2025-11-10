@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../assets/css/homepage.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop All - TechTonic</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../assets/css/product.css" />
-    <title>Contact us - TechTonic</title>
+    <link rel="stylesheet" href="../../assets/css/homepage.css" />
   </head>
   <body>
     <header>
@@ -17,11 +17,10 @@
         <div class="left-section">
           <img
             src="https://scontent.fmnl33-2.fna.fbcdn.net/v/t1.15752-9/575507886_4294411327509183_5815530201296324873_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHwXheHKm5yBolOaM0MajbvOiS1gabvwso6JLWBpu_CytoWQYUwsthj40JItK66s4M&_nc_ohc=4ISTIuz_d7EQ7kNvwG04oh8&_nc_oc=Adl1Ux2gi9EwLopdRIQ9-CZ5OlpIffB3fS21ca6PWg8Z7_6pUFKxdJ0G8pVVwB9cqeA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fmnl33-2.fna&oh=03_Q7cD3wGw0YU0yBYCopV-JwvsAOiCR754TnuETcL7RW_H0nz4bA&oe=692FBD7F"
-            alt="Logo"
           />
           <nav class="main-links">
-            <a href="../../../index.html">Home</a>
-            <a href="#">About Us</a>
+            <a href="../../index.html">Home</a>
+            <a href="../../about_us.html">About Us</a>
             <a href="#">Contact Us</a>
           </nav>
         </div>
@@ -36,41 +35,28 @@
             />
             <div id="search-results"></div>
           </div>
-          <a href="cart.html">
+          <a href="../cart.html">
             <i class="fa-solid fa-cart-shopping cart-icon"></i
           ></a>
         </div>
       </div>
       <div class="bottom-nav">
-        <a href="../products/computer_components/computer_components.html"
+        <a href="../computer_components/computer_components.html"
           >PC Components</a
         >
-        <a href="./products/hardware/hardware.html">Hardware</a>
-        <a href="./products/software/software.html">Software</a>
-        <a href="./products/shop_all.html">Shop All</a>
+        <a href="../products/hardware/hardware.html">Hardware</a>
+        <a href="../products/software/software.html">Software</a>
+        <a href="shop_all.html">Shop All</a>
       </div>
     </header>
-    <div class="product-wrapper">
-      <div class="card">
-        <!-- All text and buttons go inside this single div -->
-        <div class="product-info">
-          <p style="font-size: 20px">
-            You can contact us at:<br /><br />Facebook: TechTonic Philippines<br />Email:
-            techtonicph@gmail.com<br />Phone: 09765293876
-          </p>
-        </div>
-      </div>
-    </div>
+    <main>
+      <h2>PC Components</h2>
+      <br />
+      <div id="pcComponents" class="grid"></div>
+    </main>
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
   </body>
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
-  <script src="../../../assets/js/product.js"></script>
-  <script src="../../../assets/js/search.js"></script>
+  <script src="../../assets/js/homepage.js"></script>
+  <script src="../../assets/js/search.js"></script>
+  <script src="../../assets/js/shop_all.js"></script>
 </html>

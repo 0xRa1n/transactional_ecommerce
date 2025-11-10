@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hardware Solutions - TechTonic</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/homepage.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="top-nav">
+        <div class="left-section">
+          <img
+            src="https://scontent.fmnl33-2.fna.fbcdn.net/v/t1.15752-9/575507886_4294411327509183_5815530201296324873_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHwXheHKm5yBolOaM0MajbvOiS1gabvwso6JLWBpu_CytoWQYUwsthj40JItK66s4M&_nc_ohc=4ISTIuz_d7EQ7kNvwG04oh8&_nc_oc=Adl1Ux2gi9EwLopdRIQ9-CZ5OlpIffB3fS21ca6PWg8Z7_6pUFKxdJ0G8pVVwB9cqeA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fmnl33-2.fna&oh=03_Q7cD3wGw0YU0yBYCopV-JwvsAOiCR754TnuETcL7RW_H0nz4bA&oe=692FBD7F"
+          />
+          <nav class="main-links">
+            <a href="../../index.html">Home</a>
+            <a href="../../about_us.html">About Us</a>
+            <a href="../../contact_us.html">Contact Us</a>
+          </nav>
+        </div>
+        <div class="right-section">
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+          <a href="../../cart.html">
+            <i class="fa-solid fa-cart-shopping cart-icon"></i
+          ></a>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <a href="../computer_components/computer_components.html"
+          >PC Components</a
+        >
+        <a href="hardware.html">Hardware</a>
+        <a href="../software/software.html">Software</a>
+        <a href="../shop_all.html">Shop All</a>
+      </div>
+    </header>
+    <main>
+      <h2>Hardware</h2>
+      <br />
+      <div id="pcComponents" class="grid"></div>
+    </main>
+    <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
+  </body>
+  <script>
+    const pcComponents = [
+      // networking devices
+      {
+        name: "TP-Link ER605 Gigabit VPN Router",
+        price: 2342,
+        image:
+          "https://m.media-amazon.com/images/I/61lIwZudsiL._AC_SL1500_.jpg",
+        link: "networking/tp_link_er605_gigabit_vpn_router.html",
+      },
+      {
+        name: "PLDT/Smart Bro Home WiFi Modem",
+        price: 1095,
+        image:
+          "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/1/6/166687_2022_1.jpg?auto=webp&format=pjpg&width=640",
+        link: "networking/pldt_smart_bro_home_wifi_modem.html",
+      },
+      {
+        name: "TP-Link TL-SG1008 8-Port Gigabit Switch",
+        price: 2199,
+        image:
+          "https://www.gigahertz.com.ph/cdn/shop/files/tp-link-sg1008-8-port-gigabit-switch-tp-link-gigahertz-831707_1024x.jpg?v=1734320141",
+        link: "networking/tp_link_tl_sg1008_8_port_gigabit_switch.html",
+      },
+      {
+        name: "Netgear Orbi Mesh WiFi 6 System",
+        price: 33160,
+        image:
+          "https://netgearstore.ph/cdn/shop/products/RBK853-100EUS.png?v=1655348596",
+        link: "networking/netgear_orbi_mesh_wifi_6_system.html",
+      },
+      {
+        name: "Siemon UTP Cable Cat6 24 AWG 305m",
+        price: 9000,
+        image:
+          "https://www.twowaycommunications.co.ke/uploads/img/pages/siemon-cat-6-utp-ethernet-cable.webp",
+        link: "networking/siemon_utp_cable_cat6_24awg_305m.html",
+      },
+      // storage & power devices
+      {
+        name: "Samsung 990 EVO M.2 1TB PCIe 4.0 NVMe SSD",
+        price: 6095,
+        image:
+          "https://dynaquestpc.com/cdn/shop/files/63_d533b025-e63c-4477-b0c8-05909d94a3ca.png?v=1710386311&width=640",
+        link: "storage_power_devices/samsung_990_evo_m2_1tb_pcie_4_nvme_ssd.html",
+      },
+
+      {
+        name: "WD My Passport 2TB USB 3.0 External",
+        price: 4395,
+        image:
+          "https://ecommerce.datablitz.com.ph/cdn/shop/products/MyPassport-1TB-2TB-Black-Angled-Right.png.wdthumb.1280.1280_2452ed15-b529-4426-84d7-7ec9264d409c_1024x.png?v=1740635872",
+        link: "storage_power_devices/wd_my_passport_2tb_usb_3_0_external.html",
+      },
+      {
+        name: "Synology DiskStation DS124 NAS",
+        price: 53999,
+        image:
+          "https://www.synology.com/img/products/detail/DS124/img_og_image.jpg",
+        link: "storage_power_devices/synology_diskstation_ds124_nas.html",
+      },
+      {
+        name: "UGREEN NASync DXP2800 2-Bay NAS",
+        price: 23051,
+        image:
+          "https://m.media-amazon.com/images/I/61WvMIHMDcL._AC_SL1500_.jpg",
+        link: "storage_power_devices/ugreen_nasync_dxp2800_2_bay_nas.html",
+      },
+      {
+        name: "APC Back-UPS, 2200VA",
+        price: 16050,
+        image: "https://media.rs-online.com/Y2877242-01.jpg",
+        link: "storage_power_devices/apc_back_ups_2200va.html",
+      },
+      {
+        name: "SUPERMICRO Mini PC Server System",
+        price: 29795,
+        image:
+          "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQQtHlYpUucZjat2Dxmm6eC5ONw5nasCG1yBfTJdwGAuTERpP3MSJK54C5ZPLKyTFj9ARzRjpQXkXC5bpITcIClt8z3WUMEn0LihDo9f1o2RfERAaKbVRk1",
+        link: "storage_power_devices/supermicro_minipc_server.html",
+      },
+      // smart devices
+      {
+        name: "SONOFF NSPanel Pro Smart Home Control Panel",
+        price: 12222,
+        image:
+          "https://sonoff.tech/cdn/shop/files/NS_PRO.png?v=1751007476&width=2048",
+        link: "smart_devices/sonoff_nspanel_pro_smart_home_control_panel.html",
+      },
+      {
+        name: "TP-Link Tapo C200 Pan/Tilt Home WiFi Camera",
+        price: 1050,
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtD4XoJE67b6HPkGtg_WSV6JX8wn7zAFki0Q&s",
+        link: "smart_devices/tp_link_tapo_c200_pan_tilt_home_wifi_camera.html",
+      },
+      {
+        name: "Philips EasyKey DDL801 Fingerprint Smart Door Lock",
+        price: 38000,
+        image:
+          "https://larxtrading.com.ph/wp-content/uploads/2025/02/Philips-DDL801-5HBS.webp",
+        link: "smart_devices/philips_easykey_ddl801_fingerprint_smart_door_lock.html",
+      },
+      {
+        name: "Aqara Smart Wall Switch (Zigbee, neutral / no-neutral variants)",
+        price: 2000,
+        image:
+          "https://www.aqara-shop.co.uk/wp-content/uploads/2023/03/wall-switch-4.jpg",
+        link: "smart_devices/aqara_smart_wall_switch.html",
+      },
+      {
+        name: "Google Nest Temperature Sensor",
+        price: 3000,
+        image:
+          "https://m.media-amazon.com/images/I/6156ph13zPL._AC_SL1500_.jpg",
+        link: "smart_devices/google_nest_temperature_sensor.html",
+      },
+    ];
+
+    const pcComponentsContainer = document.getElementById("pcComponents");
+
+    pcComponents.forEach((product) => {
+      const productCard = document.createElement("div");
+      productCard.className = "card";
+
+      productCard.innerHTML = `<img
+                src="${product.image}"
+                alt="${product.name}"
+              />
+              <div>
+                <a
+                  href="${product.link}"
+                  style="text-decoration: none; color: black"
+                  >${product.name}</a
+                >
+              </div>
+              <div class="price">₱${product.price.toLocaleString()}</div>
+              <div class="button-group">
+                <button onclick="buyNow('${product.name}', ${product.price}, '${
+        product.image
+      }')">Buy Now</button>
+                <button class="cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+              </div>`;
+
+      pcComponentsContainer.appendChild(productCard);
+    });
+
+    //  add to cart functionality
+    document.querySelectorAll(".cart-btn").forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const product = pcComponents[index];
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${product.name} has been added to your cart.`);
+      });
+    });
+  </script>
+</html>

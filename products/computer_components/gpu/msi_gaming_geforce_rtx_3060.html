@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../assets/homepage.css" />
+    <link rel="stylesheet" href="../../../assets/css/homepage.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../assets/product.css" />
-    <title>Product</title>
+    <link rel="stylesheet" href="../../../assets/css/product.css" />
+    <title>MSI Gaming GeForce RTX 3060 - TechTonic</title>
   </head>
   <body>
     <header>
@@ -28,7 +28,13 @@
         <div class="right-section">
           <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search" />
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search"
+              autocomplete="off"
+            />
+            <div id="search-results"></div>
           </div>
           <a href="../../../cart.html">
             <i class="fa-solid fa-cart-shopping cart-icon"></i
@@ -37,9 +43,9 @@
       </div>
       <div class="bottom-nav">
         <a href="../computer_components.html">PC Components</a>
-        <a href="#">Hardware</a>
-        <a href="#">Software</a>
-        <a href="../computer_components.html">Shop All</a>
+        <a href="../../hardware/hardware.html">Hardware</a>
+        <a href="../../software/software.html">Software</a>
+        <a href="../../shop_all.html">Shop All</a>
       </div>
     </header>
     <div class="product-wrapper">
@@ -54,12 +60,7 @@
           <h2>₱17,500</h2>
           <!-- Buttons are now the last item inside product-info -->
           <div class="button-group">
-            <button
-              class="buy-btn"
-              onclick="buyNow('MSI Gaming GeForce RTX 3060', 17500, 'https://m.media-amazon.com/images/I/71tduSp8ooL._AC_SL1500_.jpg')"
-            >
-              Buy Now
-            </button>
+            <button class="buy-btn">Buy Now</button>
             <button class="cart-btn">
               <ion-icon name="cart-outline"></ion-icon>
             </button>
@@ -122,5 +123,6 @@
     nomodule
     src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
   ></script>
+  <script src="../../../assets/js/search.js"></script>
   <script src="../../../assets/js/product.js"></script>
 </html>

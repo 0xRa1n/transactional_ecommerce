@@ -19,40 +19,102 @@ tabButtons.forEach((button) => {
 const cartButtons = document.querySelectorAll(".cart-btn");
 cartButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // get the price (strip peso sign and commas, then convert to number)
+    const productName = document.querySelector(".product-info h1").innerText;
     const rawPrice = document.querySelector(".product-info h2").innerText;
     const price = Number(rawPrice.replace(/[^0-9.-]+/g, ""));
+    const productImage = document.querySelector(".card img").src;
 
-    const product = {
-      name: document.querySelector(".product-info h1").innerText,
-      price: price, // store as a number (26995)
-      image: document.querySelector(".card img").src,
-    };
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
+
+    // Check if product already exists in cart
+    const existingProduct = cart.find((item) => item.name === productName);
+
+    if (existingProduct) {
+      // If it exists, update the quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If it doesn't exist, add it to the cart with quantity 1
+      const product = {
+        name: productName,
+        price: price,
+        image: productImage,
+        quantity: 1,
+      };
+      cart.push(product);
+    }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Product added to cart!");
+    alert(`${productName} added to cart!`);
   });
 });
 
-function buyNow(productName, productPrice, productImage) {
+const buyNowButton = document.querySelector(".buy-btn");
+if (buyNowButton) {
+  buyNowButton.addEventListener("click", () => {
+    const productName = document.querySelector(".product-info h1").innerText;
+    const rawPrice = document.querySelector(".product-info h2").innerText;
+    const productPrice = Number(rawPrice.replace(/[^0-9.-]+/g, ""));
+    const productImage = document.querySelector(".card img").src;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if product already exists in cart
+    const existingProduct = cart.find((item) => item.name === productName);
+
+    if (existingProduct) {
+      // If it exists, update the quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If it doesn't exist, add it to the cart with quantity 1
+      const product = {
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1,
+      };
+      cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Adjust the path to checkout.html relative to the htdocs root
+    window.location.href = "/checkout.html";
+  });
+}
+
+function buyNow(
+  productName,
+  productPrice,
+  productImage,
+  route = "../../checkout.html"
+) {
   // Get the existing cart from localStorage or create a new empty array
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Create a new product object
-  const product = {
-    name: productName,
-    price: productPrice,
-    image: productImage,
-  };
+  const existingProduct = cart.find((item) => item.name === productName);
+  if (existingProduct) {
+    // If it exists, update the quantity
+    existingProduct.quantity += 1;
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // Redirect to the checkout page
+    window.location.href = route;
+  } else {
+    // Create a new product object
+    const product = {
+      name: productName,
+      price: productPrice,
+      image: productImage,
+      quantity: 1,
+    };
 
-  // Add the new product to the cart
-  cart.push(product);
+    // Add the new product to the cart
+    cart.push(product);
 
-  // Save the updated cart back to localStorage
-  localStorage.setItem("cart", JSON.stringify(cart));
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-  // Redirect to the checkout page
-  window.location.href = "checkout.html";
+    // Redirect to the checkout page
+    window.location.href = route;
+  }
 }

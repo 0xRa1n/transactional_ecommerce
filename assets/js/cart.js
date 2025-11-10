@@ -13,6 +13,8 @@ if (cartItems.length === 0) {
 }
 
 cartItems.forEach((item) => {
+  // get the quantity from the item, default to 1 if not present
+  const quantity = item.quantity || 1;
   const itemDiv = document.createElement("div");
   itemDiv.className = "card";
   itemDiv.innerHTML = `
@@ -26,12 +28,12 @@ cartItems.forEach((item) => {
           </div>
         </div>
         <div class="cart-actions">
-            <input type="number" class="quantity-input" value="1" min="1">
+            <input type="number" class="quantity-input" value="${quantity}" min="1">
             <button class="remove-btn"><ion-icon name="trash-outline"></ion-icon></button>
         </div>
       `;
   cartItemsContainer.appendChild(itemDiv);
-  totalPrice += parseFloat(item.price);
+  totalPrice += parseFloat(item.price) * quantity;
 });
 
 if (cartItems.length > 0) {
@@ -64,32 +66,41 @@ cartItemsContainer.addEventListener("click", (e) => {
     location.reload(); // Refresh to update total price
   }
 });
+// ...existing code...
 // update quantity
 cartItemsContainer.addEventListener("change", (e) => {
   if (e.target.classList.contains("quantity-input")) {
     const itemDiv = e.target.closest(".card");
     const itemName = itemDiv.querySelector(".product-info h3").innerText;
-    const quantity = parseInt(e.target.value);
-    const item = cartItems.find((item) => item.name === itemName);
-    if (item) {
-      const itemPrice = item.price * quantity;
-      const priceElement = itemDiv.querySelector(".product-info h4");
-      priceElement.innerText = `₱${itemPrice.toLocaleString()}`;
-      // Update total price
-      totalPrice = cartItems.reduce((total, currentItem) => {
-        const qtyInput = cartItemsContainer.querySelector(
-          `.card:has(.product-info h3:contains("${currentItem.name}")) .quantity-input`
-        );
-        const qty = qtyInput ? parseInt(qtyInput.value) : 1;
-        return total + currentItem.price * qty;
-      }, 0);
-      cartSummaryContainer.innerHTML = `<div class="card">
-      <div class="product-details">
+    const newQuantity = parseInt(e.target.value);
 
+    // Update the quantity in the localStorage cart
+    const itemInCart = cartItems.find((item) => item.name === itemName);
+    if (itemInCart) {
+      itemInCart.quantity = newQuantity;
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+    }
+
+    // Recalculate total price from the DOM
+    let newTotalPrice = 0;
+    const allItemCards = cartItemsContainer.querySelectorAll(".card");
+    allItemCards.forEach((card) => {
+      const name = card.querySelector(".product-info h3").innerText;
+      const quantity = parseInt(card.querySelector(".quantity-input").value);
+      const itemData = cartItems.find((item) => item.name === name);
+      if (itemData) {
+        newTotalPrice += itemData.price * quantity;
+      }
+    });
+
+    totalPrice = newTotalPrice;
+
+    // Update the summary in the DOM
+    cartSummaryContainer.innerHTML = `<div class="card">
+      <div class="product-details">
           <h3>Total Price: ₱${totalPrice.toLocaleString()}</h3>
           <button id="checkout-btn"><a href="checkout.html" style="text-decoration: none; color: white">Proceed to checkout</a></button>
         </div></div>
       `;
-    }
   }
 });
