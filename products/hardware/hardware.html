@@ -28,9 +28,15 @@
         <div class="right-section">
           <div class="search-container">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search" />
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search"
+              autocomplete="off"
+            />
+            <div id="search-results"></div>
           </div>
-          <a href="../../cart.html">
+          <a href="../../../cart.html">
             <i class="fa-solid fa-cart-shopping cart-icon"></i
           ></a>
         </div>
@@ -51,6 +57,7 @@
     </main>
     <footer>&copy; 2025 TechTonic. All rights reserved.</footer>
   </body>
+  <script src="../../../assets/js/search.js"></script>
   <script>
     const pcComponents = [
       // networking devices
